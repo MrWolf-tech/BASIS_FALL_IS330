@@ -1,6 +1,6 @@
 <script src=".\country-states.js"></script><!-- adds country and states code list-->
 <?php 
-    
+    require_once('./model_customers.php');
 
     if(count($_POST) != 0){ //if _post array is not empty
         $name = filter_input(INPUT_POST, 'name'); 
@@ -14,13 +14,7 @@
         insertCustomer($name, $address, $city, $state, $country, $zip, $phone_number, $email);
     }
 
-    function insertCustomer(string $name,string $address,string $city,string $state,string $country,string $zip,string $phone_number,string $email){
-        require 'database_functions.php';
-        $tableName = 'customers';
-        $inputColumnArray = array('name', 'address', 'city', 'state', 'country', 'zip', 'phone_number', 'email');
-        $inputDataArray = array($name, $address, $city, $state, $country, $zip, $phone_number, $email);
-        insertData($tableName, $inputColumnArray, $inputDataArray);
-    }
+    
     
     
     ?>

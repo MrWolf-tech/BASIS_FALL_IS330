@@ -1,6 +1,7 @@
 
     <?php 
-    require_once('./database_functions.php');
+    require_once('./model_customers.php');
+    
     $columnNames = array('customer_id','name','address','city','state','country','zip','phone_number','email');
     $tableName = 'customers';
 
@@ -34,22 +35,7 @@
 
 
 
-    function selectCustomer($column_number, string $search_value){
-        $columnNames = array('customer_id','name','address','city','state','country','zip','phone_number','email');
-        $tableName = 'customers';
-        $columnName = $columnNames[$column_number];
-     
-        return selectDataOnKey($columnName, $search_value, $tableName);
-    }
-
-    function deleteCustomer($column_number, string $search_value){
-        $columnNames = array('customer_id','name','address','city','state','country','zip','phone_number','email');
-        $tableName = 'customers';
-        $columnName = $columnNames[$column_number];
     
-        
-        return deleteDataOnKey($columnName, $search_value, $tableName);
-    }
     //echo('<br/>'.$result1[0][1]);
     
     //$result = selectJoinData($tableName, 'customer_id', 'account_info', 'customer_id');
