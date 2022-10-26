@@ -20,7 +20,7 @@
     <div class="Navbar">
         <nav>
             <ul id="nav-container">
-            <li class="nav-item" href="index.php"><img src=""/><p>HOME</p></li>
+            <li class="nav-item" href="index.php"><img src=""/><a>HOME</a></li>
             <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <a>ABOUT US</a>           </li> <!--PAGELINK needs file link-->
             <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <a>LIVE SOUND</a>         </li>
             <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <a>OUR GEAR</a>           </li>
