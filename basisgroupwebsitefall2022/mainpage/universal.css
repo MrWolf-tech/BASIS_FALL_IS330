@@ -47,6 +47,7 @@ div.Navbar {
 
 #nav-container {
     list-style-type: none;
+    flex-wrap:nowrap;
     width: 100%;
     margin: 0;
     padding: 0;
