@@ -60,18 +60,18 @@ div.Navbar {
 .nav-item {
     float: left;
     border-left: 1px solid #bbb;
-    width: 150px;
+    width: 100px;
     height: 3em;
     transition: 0.5s;
     cursor: pointer;
 }
 
 .nav-item:first-child {
-        Width: 150px;
+        Width: 100px;
         border-left: none;
     }
 
-.nav-item a {
+.nav-item p {
         display: block;
         color: white;
         text-align: center;
