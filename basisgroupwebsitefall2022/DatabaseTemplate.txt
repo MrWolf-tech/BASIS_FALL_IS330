@@ -1,0 +1,27 @@
+Customers
+--Customer_ID Primary Key
+--Name
+--Preferred Address
+--Preferred Phone_Number
+--Preferred Email
+--Preffered payment (credit)
+Orders
+--Order_ID Primary Key
+--Customer_ID Foreign Key
+--Destination_Address (null is onsite)
+--Payment (credit)
+Order_Items
+--order_item_ID Primary Key
+--Order_ID Foreign KEY
+--Item_ID Foreign KEY
+--quoted_price (overrides item price)
+Items
+--Item_ID Primary Key
+--Item_name
+--Price
+Requested Quotes
+--quote_ID
+--customer_ID
+--return_email
+--return_phone_number
+--quote_text
