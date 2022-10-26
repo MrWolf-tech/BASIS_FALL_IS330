@@ -18,19 +18,21 @@
         
         <!-- Navigation Bar Horizontal Fullscreen -->
     <div class="Navbar">
-        <nav id="nav-container">
-            <div class="nav-item" href="index.php"><img src=""/><p>HOME</p></div>
-            <div class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>ABOUT US</p>           </div> <!--PAGELINK needs file link-->
-            <div class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>LIVE SOUND</p>         </div>
-            <div class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>OUR GEAR</p>           </div>
-            <div class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>RENTAL PRICING</p>     </div>
-            <div class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>DJ GEAR RENTALS</p>    </div>
-            <div class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>RETAIL SALES</p>       </div>
-            <div class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>PHOTO GALLERY</p>      </div>
-            <div class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>TOURING SERVICES</p>   </div>
-            <div class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>NEWS & EVENTS</p>      </div>
-            <div class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>EMERGENCY SERVICES</p> </div>
-            <div class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>CONTACT US</p>         </div>
+        <nav>
+            <ul id="nav-container">
+            <li class="nav-item" href="index.php"><img src=""/><p>HOME</p></li>
+            <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>ABOUT US</p>           </li> <!--PAGELINK needs file link-->
+            <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>LIVE SOUND</p>         </li>
+            <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>OUR GEAR</p>           </li>
+            <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>RENTAL PRICING</p>     </li>
+            <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>DJ GEAR RENTALS</p>    </li>
+            <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>RETAIL SALES</p>       </li>
+            <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>PHOTO GALLERY</p>      </li>
+            <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>TOURING SERVICES</p>   </li>
+            <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>NEWS & EVENTS</p>      </li>
+            <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>EMERGENCY SERVICES</p> </li>
+            <li class="nav-item" style="float:right" href="PAGELINK"> <img src=""/> <p>CONTACT US</p>         </li>
+            </ul>
         </nav>
     </div>
     </header>
