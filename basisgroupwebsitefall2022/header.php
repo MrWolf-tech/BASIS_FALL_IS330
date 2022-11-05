@@ -13,7 +13,8 @@
     <header>
         <!-- Banner -->
         <div class="banner">
-            <img tag="logo" alt="Welcome to Kelcema Audio" src=""/>
+            <img tag="logo" alt="Welcome to Kelcema Audio" src="menupics/newkelcema.jpg"/>
+            <div id="callus" style="float:right;"><img src="menupics/callus.png" /></div>
         </div>
         
         <!-- Navigation Bar Horizontal Fullscreen -->
