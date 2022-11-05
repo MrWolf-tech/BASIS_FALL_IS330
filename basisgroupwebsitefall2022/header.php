@@ -21,7 +21,7 @@
     <div class="Navbar">
         <nav>
             <ul id="nav-container">
-                <li class="nav-item" title="Account" style="float:right" href="loginpage.php"><a href="loginpage.php">><img src="menupics/myspace.jpg" alt="Account" title="Account" /></a></li>
+                <li class="nav-item" title="Account" style="float:right" href="loginpage.php"><a href="loginpage.php"><img src="menupics/myspace.jpg" alt="Account" title="Account" /></a></li>
                 <li class="nav-item" title="About Us" style="float:right" href="PAGELINK">  <a><img src="menupics/aboutus.jpg" alt="About Us" title="About Us"/></a></li> <!--PAGELINK needs file link-->
                 <li class="nav-item" title="Live Sound" style="float:right" href="PAGELINK">  <a><img src="menupics/services.jpg" alt="Live Sound" title="Live Sound"/></a>         </li>
                 <li class="nav-item" title="Gear" style="float:right" href="PAGELINK">  <a><img src="menupics/calendar.jpg" alt="Gear" title="Gear"/></a>           </li>
@@ -29,7 +29,7 @@
                 <li class="nav-item" title="Photo Gallery" style="float:right" href="PAGELINK">  <a><img src="menupics/photogallery.jpg" alt="Photo Gallery" title="Photo Gallery"/></a>      </li>
                 <li class="nav-item" title="Touring Services" style="float:right" href="PAGELINK">  <a><img src="menupics/truck.jpg" alt="Touring Services" title="Touring Services"/></a>   </li>
                 <li class="nav-item" title="Contact Us" style="float:right" href="PAGELINK">  <a><img src="menupics/contactus.jpg" alt="Contact Us" title="Contact Us"/></a>         </li>
-                <li class="nav-item" title="Home" style="float:right" href="index.php"><a href="index.php">><img src="menupics/home.jpg" alt="HOME" title="Home"/></a></li>
+                <li class="nav-item" title="Home" style="float:right" href="index.php"><a href="index.php"><img src="menupics/home.jpg" alt="HOME" title="Home"/></a></li>
             </ul>
         </nav>
     </div>
