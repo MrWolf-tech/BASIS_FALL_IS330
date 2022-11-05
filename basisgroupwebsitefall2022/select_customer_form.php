@@ -2,8 +2,6 @@
     <?php 
     require_once('./model_customers.php');
     
-    $columnNames = array('customer_id','name','address','city','state','country','zip','phone_number','email');
-    $tableName = 'customers';
 
     if(count($_POST) != 0){ //if _post array is not empty
         $search_value = filter_input(INPUT_POST, 'search_value'); 
@@ -66,9 +64,6 @@
         <select id="operation_type" name="operation_type">
             <option SELECTED value="0">Select</option>
             <option value="1">Delete</option>
-            <?php if($operation_type == 0){
-                echo('<option value="2">Update</option>');
-             } ?>
         </select>
         <!--<input type="hidden" value='<?php// echo($results[]) ?>'/>-->
         <input type="submit"  id="person_submit" name="Submit"/>

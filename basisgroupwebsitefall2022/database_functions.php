@@ -169,7 +169,7 @@
             $statement->bindParam(":data$i", $insertData[$i], PDO::PARAM_STR);
         }
         
-        $statement->execute();
+        return $statement->execute();
         $statement->closeCursor();
     
         echo('<div>a'. $mainquery. '</div>');
@@ -178,7 +178,7 @@
     function updateDataOnkey($keyColumnName, $dataValue, $tableName, array $columnNames, array $insertData){ 
 
         $whereCondition = "$keyColumnName = :dataValue";
-        updateData($tableName, $columnNames, $insertData, $whereCondition, $dataValue);
+        return updateData($tableName, $columnNames, $insertData, $whereCondition, $dataValue);
     }
 
     
