@@ -28,6 +28,9 @@
 
             }
         }
+        else{
+            header("./update_customer_select.php");
+        }
         ?>
         <input type="submit"  id="person_submit" name="Submit" />
     </form>

@@ -18,8 +18,6 @@
 
     function deleteCustomer($column_number, string $search_value){
         $columnName = $GLOBALS['customersColumnNames'][$column_number];
-
-        
         return deleteDataOnKey($columnName, $search_value, $GLOBALS['customersTableName']);
     }
 

@@ -55,8 +55,7 @@ CREATE TABLE team2dbsite.account_info
 			(
 			customer_id INT PRIMARY KEY AUTO_INCREMENT,
 			username TEXT,
-			pass_hash VARCHAR(1024),
-			salt TEXT
+			pass_hash TEXT
 			);
 
 
@@ -165,13 +164,11 @@ INSERT INTO team2dbsite.account_info
 		(
 		customer_id,
 		username,
-		pass_hash,
-		salt
+		pass_hash
 		) 
         VALUES 
 			(1,
 			'Us3RN4m3', 
-			'9', 
 			'9'
 			);
 
@@ -185,7 +182,7 @@ JOIN team2dbsite.customers ON team2dbsite.orders.customer_id = team2dbsite.order
 JOIN team2dbsite.account_info ON team2dbsite.customers.customer_id = team2dbsite.account_info.customer_id;
 
 UPDATE team2dbsite.account_info
-SET customer_id = 1, username = "I'm different", pass_hash = 2, salt = 5
+SET customer_id = 1, username = "I'm different", pass_hash = 2
 WHERE customer_id = 1;
 
 
