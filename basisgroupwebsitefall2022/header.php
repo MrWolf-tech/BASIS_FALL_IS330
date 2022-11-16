@@ -22,7 +22,11 @@ session_start();
             <img tag="logo" alt="Welcome to Kelcema Audio" src="menupics/newkelcema.jpg"/>
             <div id="callus" style="float:right;"><img src="menupics/callus.png" /></div>
         </div>
-        <p><?php print($_SESSION['account']->getUsername());?></p>
+        <p><?php 
+           if($_SESSION['account'] !== Null){
+               print($_SESSION['account']->getUsername()); 
+            }
+           ?></p>
         
         <!-- Navigation Bar Horizontal Fullscreen -->
     <div class="Navbar">
