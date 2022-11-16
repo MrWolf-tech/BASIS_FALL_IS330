@@ -1,6 +1,6 @@
 <script src=".\country-states.js"></script><!-- adds country and states code list-->
 <?php 
-    require_once('./backend_accounts.php');
+    require_once('./model_customers.php');
 
     if(count($_POST) != 0){ //if _post array is not empty
         $name = filter_input(INPUT_POST, 'name'); 
@@ -11,54 +11,49 @@
         $zip = filter_input(INPUT_POST, 'zip');
         $phone_number = filter_input(INPUT_POST, 'phone_number');
         $email = filter_input(INPUT_POST, 'email');
-        $username = filter_input(INPUT_POST, 'username');
-        $password = filter_input(INPUT_POST, 'password');
-        $account = new Account($name,$address,$city,$state,$country,$zip,$phone_number,$email,$username,$password, false);
-        $account->insertAccount();
+        insertCustomer($name, $address, $city, $state, $country, $zip, $phone_number, $email);
     }
 
     
     
     
-    ?>
-    <form id="addpersonForm" method="post" action="" name="addPersonForm"> <!-- this form is for adding and deleting people-->
-        <h1 class='formName'>Insert Account</h1>
+?>
+    <div class="insertform">
+        <div>
+        <form id="addpersonForm" method="post" action="" name="addPersonForm"> <!-- this form is for adding and deleting people-->
+            <h1 class='formName'>Insert Customer</h1>
 
-        <label for="username">Username</label>
-        <input required type="text"  id="username" name="username" placeholder="username"/>
+            <label for="name">Name</label>
+            <input required type="text"  id="name" name="name" placeholder="name"/>
 
-        <label for="password">Password</label>
-        <input required type="password"  id="password" name="password" placeholder="password"/>
-
-        <label for="name">Name</label>
-        <input required type="text"  id="name" name="name" placeholder="name"/>
-
-        <label for="country">Country</label>
-        <select name='country' id="country">
-            <option>select country</option>
-        </select>
+            <label for="country">Country</label>
+            <select name='country' id="country">
+                <option>select country</option>
+            </select>
         
-        <label for="state">State</label>
-        <span id="state-code"><input type="text" id="state"></span>
+            <label for="state">State</label>
+            <span id="state-code"><input type="text" id="state"></span>
 
-        <label for="address">Address</label>
-        <input required type="text"  id="address" name="address" placeholder="address"/>
+            <label for="address">Address</label>
+            <input required type="text"  id="address" name="address" placeholder="address"/>
 
-        <label for="city">City</label>
-        <input required type="text"  id="city" name="city" placeholder="city"/>
+            <label for="city">City</label>
+            <input required type="text"  id="city" name="city" placeholder="city"/>
 
-        <label for="zip">ZIP Code</label>
-        <input required type="text"  id="zip" name="zip" placeholder="ZIP code"/>
+            <label for="zip">ZIP Code</label>
+            <input required type="text"  id="zip" name="zip" placeholder="ZIP code"/>
 
-        <label for="phone_number">Phone Number</label>
-        <input required type="text"  id="phone_number" name="phone_number" placeholder="Phone Number"/>
+            <label for="phone_number">Phone Number</label>
+            <input required type="text"  id="phone_number" name="phone_number" placeholder="Phone Number"/>
 
-        <label for="email">Email</label>
-        <input required type="text"  id="email" name="email" placeholder="email"/>
+            <label for="email">Email</label>
+            <input required type="text"  id="email" name="email" placeholder="email"/>
 
 
-        <input type="submit"  id="person_submit" name="Submit"/>
-    </form>
+            <input type="submit"  id="person_submit" name="Submit"/>
+        </form>
+        </div>
+    </div>
 
 <script>//script that implements country drop down from www.html-code-generator.com
     // user country code for selected option

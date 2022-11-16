@@ -1,4 +1,8 @@
 
+<?php
+session_start();
+?>
+
 <html> <!--END TAG IN footer.php-->
 <head>
     <title>CIS330_Group_Project</title>
