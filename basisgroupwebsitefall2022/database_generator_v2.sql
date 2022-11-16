@@ -55,7 +55,8 @@ CREATE TABLE team2dbsite.account_info
 			(
 			customer_id INT PRIMARY KEY AUTO_INCREMENT,
 			username TEXT,
-			pass_hash TEXT
+			pass_hash TEXT,
+            is_admin BOOLEAN
 			);
 
 
@@ -73,7 +74,7 @@ INSERT INTO team2dbsite.customers
         ) 
         VALUES 
             (
-            'helloworld', 
+            'Admin', 
             '4500 16th Street', 
             'Port Orchard', 
             'Washington', 
@@ -164,12 +165,17 @@ INSERT INTO team2dbsite.account_info
 		(
 		customer_id,
 		username,
-		pass_hash
+		pass_hash,
+        is_admin
+        
 		) 
         VALUES 
 			(1,
+			'admin', 
+			'$2y$10$kZzhofy7hXXlzxRhwouZs.Fh0e/29b5Hecxq.SeeEsGb.Voo0uLN6', TRUE
+			), (2,
 			'Us3RN4m3', 
-			'9'
+			'9', FALSE
 			);
 
 
@@ -182,8 +188,8 @@ JOIN team2dbsite.customers ON team2dbsite.orders.customer_id = team2dbsite.order
 JOIN team2dbsite.account_info ON team2dbsite.customers.customer_id = team2dbsite.account_info.customer_id;
 
 UPDATE team2dbsite.account_info
-SET customer_id = 1, username = "I'm different", pass_hash = 2
-WHERE customer_id = 1;
+SET customer_id = 2, username = "I'm different", pass_hash = 2
+WHERE customer_id = 2;
 
 
 DELETE FROM team2dbsite.requested_quotes

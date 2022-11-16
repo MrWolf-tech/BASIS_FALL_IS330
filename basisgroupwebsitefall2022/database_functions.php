@@ -28,13 +28,13 @@
 
 
 
-    function deleteData(string $tableName, string $whereCondition, string $dataValue){
+    function deleteData(string $tableName, string $whereCondition, array $dataValues){
             
         $query = "DELETE FROM $tableName WHERE $whereCondition";
         try {
             $statement = $GLOBALS['$db']->prepare($query);
-            if(substr_count($whereCondition,":dataValue") == 1){//adds parameterization support for on key
-                $statement->bindParam(":dataValue", $dataValue, PDO::PARAM_STR);
+            for($i = 0; $i < substr_count($whereCondition,":dataValue"); $i++){//adds parameterization support for on key
+                $statement->bindParam(":dataValue$i", $dataValues[$i], PDO::PARAM_STR);
             }
                 $statement->execute();
                 return $statement;//
@@ -48,13 +48,14 @@
     }
     
     function deleteDataOnkey($keyColumnName, $dataValue, $tableName){
-        $whereCondition = "$keyColumnName = :dataValue";
-        return deleteData($tableName, $whereCondition, $dataValue);
+        $whereCondition = "$keyColumnName = :dataValue0";
+        $dataValueArray = array($dataValue);
+        return deleteData($tableName, $whereCondition, $dataValueArray);
     }
 
 
 
-    function selectData(string $tableName, string $whereCondition, string $dataValue){ //Where conditions and column names are not sanitized, so functions should regulate this. $dataValue is for other functions to use
+    function selectData(string $tableName, string $whereCondition, array $dataValues){ //Where conditions and column names are not sanitized, so functions should regulate this. $dataValue is for other functions to use
         if($whereCondition == NULL)
             {
             $whereCondition = 'true';
@@ -64,9 +65,8 @@
         try {
             $statement = $GLOBALS['$db']->prepare($query);
 
-            if(substr_count($whereCondition,":dataValue") == 1){//adds parameterization support for on key
-                $statement->bindParam(":dataValue", $dataValue, PDO::PARAM_STR);
-                
+            for($i = 0; $i < substr_count($whereCondition,":dataValue"); $i++){//adds parameterization support for on key
+                $statement->bindParam(":dataValue$i", $dataValues[$i], PDO::PARAM_STR);
             }
             $statement->execute();
             $statement->setFetchMode(PDO::FETCH_NUM);
@@ -84,8 +84,9 @@
 
 
     function selectDataOnKey($keyColumnName, $dataValue, $tableName){
-        $whereCondition = "$keyColumnName = :dataValue";
-        return selectData($tableName, $whereCondition, $dataValue);
+        $whereCondition = "$keyColumnName = :dataValue0";
+        $dataValueArray = array($dataValue);
+        return selectData($tableName, $whereCondition, $dataValueArray);
     }
 
 
@@ -141,7 +142,7 @@
         echo('<div>a'.$mainquery. '</div>');
     }
 
-    function updateData(string $tableName, array $columnNames, array $insertData, string $whereCondition, string $dataValue) { // a basic update function that should have functions that automatically format data for each table to fit. Where conditions and column names are not sanitized, so functions should regulate this. $dataValue is for other functions to use
+    function updateData(string $tableName, array $columnNames, array $insertData, string $whereCondition, array $dataValues) { // a basic update function that should have functions that automatically format data for each table to fit. Where conditions and column names are not sanitized, so functions should regulate this. $dataValues is for other functions to use to build where functions
         
         if($whereCondition == NULL or $whereCondition == '')// if where omitted, then it's true
         {
@@ -161,8 +162,8 @@
     
         $statement = $GLOBALS['$db']->prepare($mainquery);
 
-        if(substr_count($whereCondition,":dataValue") == 1){//adds parameterization support for on key
-            $statement->bindParam(":dataValue", $dataValue, PDO::PARAM_STR);
+        for($i = 0; $i < substr_count($whereCondition,":dataValue"); $i++){//adds parameterization support for on key
+            $statement->bindParam(":dataValue$i", $dataValues[$i], PDO::PARAM_STR);
         }
 
         for($i = 0; $i < count($columnNames); $i++){ //binds the values to params
@@ -177,8 +178,9 @@
 
     function updateDataOnkey($keyColumnName, $dataValue, $tableName, array $columnNames, array $insertData){ 
 
-        $whereCondition = "$keyColumnName = :dataValue";
-        return updateData($tableName, $columnNames, $insertData, $whereCondition, $dataValue);
+        $whereCondition = "$keyColumnName = :dataValue0";
+        $dataValueArray = array($dataValue);
+        return updateData($tableName, $columnNames, $insertData, $whereCondition, $dataValueArray);
     }
 
     
