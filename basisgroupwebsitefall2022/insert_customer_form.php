@@ -1,6 +1,6 @@
 <script src=".\country-states.js"></script><!-- adds country and states code list-->
 <?php 
-    require_once('./model_customers.php');
+    require_once('./backend_accounts.php');
 
     if(count($_POST) != 0){ //if _post array is not empty
         $name = filter_input(INPUT_POST, 'name'); 
@@ -11,7 +11,11 @@
         $zip = filter_input(INPUT_POST, 'zip');
         $phone_number = filter_input(INPUT_POST, 'phone_number');
         $email = filter_input(INPUT_POST, 'email');
-        insertCustomer($name, $address, $city, $state, $country, $zip, $phone_number, $email);
+        $username = filter_input(INPUT_POST, 'username'); 
+        $password = filter_input(INPUT_POST, 'password');
+        $account = new Account();
+        $account->constructor($name, $address, $city, $state, $country, $zip, $phone_number, $email, $username, $password, false);
+        $account->insertAccount();
     }
 
     
@@ -22,6 +26,12 @@
         <div>
         <form id="addpersonForm" method="post" action="" name="addPersonForm"> <!-- this form is for adding and deleting people-->
             <h1 class='formName'>Insert Customer</h1>
+
+            <label for="username">Username</label>
+            <input required type="text"  id="username" name="username" placeholder="Username"/>
+
+            <label for="password">Password</label>
+            <input required type="password"  id="password" name="password" placeholder="password"/>
 
             <label for="name">Name</label>
             <input required type="text"  id="name" name="name" placeholder="name"/>

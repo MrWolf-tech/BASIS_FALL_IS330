@@ -15,12 +15,12 @@
         private $account_email;
         private $account_username;
         private $account_password; //only used for creating new accounts
-        private $account_is_admin = false; //only used for creating new accounts
+        private $account_is_admin = false; //initialized to false by default
 
 
         const PASSWORD_ALGO = PASSWORD_BCRYPT;
 
-        function __construct($name,$address,$city,$state,$country,$zip,$phone_number,$email,$username,$password,$is_admin){
+        function constructor($name,$address,$city,$state,$country,$zip,$phone_number,$email,$username,$password,$is_admin){
             $this->setName($name);
             $this->setAddress($address);
             $this->setCity($city);

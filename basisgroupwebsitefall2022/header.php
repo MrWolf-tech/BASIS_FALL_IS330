@@ -1,6 +1,8 @@
 
 <?php
+require_once('./backend_accounts.php');
 session_start();
+
 ?>
 
 <html> <!--END TAG IN footer.php-->
@@ -20,6 +22,7 @@ session_start();
             <img tag="logo" alt="Welcome to Kelcema Audio" src="menupics/newkelcema.jpg"/>
             <div id="callus" style="float:right;"><img src="menupics/callus.png" /></div>
         </div>
+        <p><?php print($_SESSION['account']->getUsername());?></p>
         
         <!-- Navigation Bar Horizontal Fullscreen -->
     <div class="Navbar">

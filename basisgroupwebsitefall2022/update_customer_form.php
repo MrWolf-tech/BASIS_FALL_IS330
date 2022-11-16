@@ -1,5 +1,4 @@
 <?php 
-    session_start();
 
     require_once('./model_customers.php');
     
@@ -29,7 +28,7 @@
             }
         }
         else{
-            header("./update_customer_select.php");
+            header("Location: ./update_customer_select.php");
         }
         ?>
         <input type="submit"  id="person_submit" name="Submit" />
