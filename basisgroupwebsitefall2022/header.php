@@ -3,6 +3,8 @@
 require_once('./backend_accounts.php');
 session_start();
 
+
+
 ?>
 
 <html> <!--END TAG IN footer.php-->
@@ -29,7 +31,7 @@ session_start();
             <ul id="nav-container">
                 <li class="nav-item" title="Account User" style="float:left">   <p>
                                                                                 <?php 
-                                                                                if($_SESSION['account'] !== Null){
+                                                                                if(isset($_SESSION['account'])){
                                                                                     print($_SESSION['account']->getUsername());}?>
                                                                                 </p>
                                                                              </li>
