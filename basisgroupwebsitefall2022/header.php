@@ -22,16 +22,17 @@ session_start();
             <img tag="logo" alt="Welcome to Kelcema Audio" src="menupics/newkelcema.jpg"/>
             <div id="callus" style="float:right;"><img src="menupics/callus.png" /></div>
         </div>
-        <p><?php 
-           if($_SESSION['account'] !== Null){
-               print($_SESSION['account']->getUsername()); 
-            }
-           ?></p>
         
         <!-- Navigation Bar Horizontal Fullscreen -->
     <div class="Navbar">
         <nav>
             <ul id="nav-container">
+                <li class="nav-item" title="Account User" style="float:left">   <p>
+                                                                                <?php 
+                                                                                if($_SESSION['account'] !== Null){
+                                                                                    print($_SESSION['account']->getUsername());}?>
+                                                                                </p>
+                                                                             </li>
                 <li class="nav-item" title="Account" style="float:right" href="loginpage.php"><a href="loginpage.php"><img src="menupics/myspace.jpg" alt="Account" title="Account" /></a></li>
                 <li class="nav-item" title="About Us" style="float:right" href="PAGELINK">  <a><img src="menupics/aboutus.jpg" alt="About Us" title="About Us"/></a></li> <!--PAGELINK needs file link-->
                 <li class="nav-item" title="Live Sound" style="float:right" href="PAGELINK">  <a><img src="menupics/services.jpg" alt="Live Sound" title="Live Sound"/></a>         </li>
