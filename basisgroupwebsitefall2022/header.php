@@ -35,7 +35,7 @@ session_start();
                                                                                     print($_SESSION['account']->getUsername());
                                                                                 }?>
                                                                                 </p>
-                                                                             </li>
+                                                                                </li>
                 <li class="nav-item" title="Account User" style="float:left"><button onclick="<?php $_SESSION['account'] = Null; ?>" href="index.php"></button></li>
                 <li class="nav-item" title="Account" style="float:right" href="loginpage.php"><a href="loginpage.php"><img src="menupics/myspace.jpg" alt="Account" title="Account" /></a></li>
                 <li class="nav-item" title="About Us" style="float:right" href="PAGELINK">  <a><img src="menupics/aboutus.jpg" alt="About Us" title="About Us"/></a></li> <!--PAGELINK needs file link-->
