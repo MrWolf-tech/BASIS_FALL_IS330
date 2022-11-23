@@ -19,7 +19,7 @@ CREATE TABLE team2dbsite.orders
 			FOREIGN KEY(customer_id) REFERENCES customers(customer_id),
 			destination_address TEXT,
 			destination_city TEXT,
-			destination_province TEXT,
+			destination_state TEXT,
 			destination_country TEXT,
 			destination_zip INT,
 			quote_discount FLOAT,
@@ -106,7 +106,7 @@ INSERT INTO team2dbsite.orders
 		customer_id,
 		destination_address,
 		destination_city,
-		destination_province,
+		destination_state,
 		destination_country,
 		destination_zip,
 		quote_discount,
@@ -126,12 +126,14 @@ INSERT INTO team2dbsite.orders
 INSERT INTO team2dbsite.items
 		(
 		item_name, 
-		price
+		price,
+        photo
 		) 
 		VALUES 
 			(
 			'stuff',
-			500.50
+			500.50,
+            'test.jpg'
 			);
 INSERT INTO team2dbsite.order_items
 		(

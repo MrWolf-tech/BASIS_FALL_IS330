@@ -15,6 +15,9 @@
     function selectOrderItemOnID(string $search_value){
         return selectOrderItem(0, $search_value);
     }
+    function selectOrderItemOnOrderID(string $search_value){
+        return selectOrderItem(1, $search_value);
+    }
 
     function deleteOrderItem($column_number, string $search_value){
         $columnName = $GLOBALS['orderItemsColumnNames'][$column_number];
