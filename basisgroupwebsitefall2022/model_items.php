@@ -1,6 +1,5 @@
 <?php
     require_once('./database_functions.php');
-    require_once('./backend_items.php');
     //all of these need to be renamed on any variants in order to correspond with the name of the model which will ensure compatibility between models on the same page
     $itemsTableName = 'items'; //name of table at global level for functions
     $itemsIDColumnName = 'item_id'; //name of table id at global level for functions
@@ -23,18 +22,7 @@
         return selectData($GLOBALS['itemsTableName'], "true limit $lower_limit,$higher_limit", $data_values);
     }
 
-    function selectItemsPaginatedAsObjects($page_number){
-        $item_objects = array();
-        $data = selectItemsPaginated($page_number); //gets a page of items
-        $data = $data -> fetchAll();
-
-        foreach($data as $i => $datum){ //for all of the items on a page
-            $item_objects[$i] = new Item(); //creates item in array
-            $item_objects[$i]->selectItemObject($datum[0]); //fetches value based on id
-        }
-
-        return $item_objects; //returns array of page items as objects
-    }
+    
 
     function selectItemOnID(string $search_value){
         return selectItem(0, $search_value);

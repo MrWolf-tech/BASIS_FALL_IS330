@@ -1,11 +1,9 @@
 <?php
     require_once('./backend_items.php');
-
-    if(!isset($_session['shopping_cart']))
+    if(!isset($_SESSION['shopping_cart']))
     {
-        $_session['shopping_cart'] = array(array());
+        $_SESSION['shopping_cart'] = array();
     }
-    
     
 
     if(count($_GET) != 0){
@@ -15,21 +13,24 @@
         header("Location: ./catalog.php?page_number=0");
     }
 
-    for($i = 0; $i < count($_session['shopping_cart']); $i++){
+    for($i = 0; $i < count($_SESSION['shopping_cart']); $i++){
         $itemObject = new Item();
-        $itemObject->selectItemObject($_session['shopping_cart'][$i][0]);
+        $itemObject->selectItemObject($_SESSION['shopping_cart'][$i][0]);
         print("
-            <form action='addtocart.php' method='post'>
+            <form method='post'>
                 <input type='hidden' id='page_number' name='page_number' value='$page_number'>
                 <input type='hidden' id='item_id' name='item_id' value='" . $itemObject->getItemID() . "'>
+                <input type='hidden' id='index' name='index' value='" . $i . "'>
                 <img class='item_img' src='" . $itemObject->getPhoto() . "'/>
                 <p> " . $itemObject->getName() . "</p>
                 <p> $" . $itemObject->getPrice() . "</p>
-                <p> Quantity: " . $_session['shopping_cart'][$i][1] . "</p>
+                <p> Quantity: " . $_SESSION['shopping_cart'][$i][1] . "</p>
             </form>"
         );
     }
-
+    print("
+        <a href='order_confirm_page.php'>confirm order</a>
+    ");
     $items = selectItemsPaginatedAsObjects($page_number);
     foreach($items as $item){
         print("
@@ -39,8 +40,8 @@
                 <img class='item_img' src='" . $item->getPhoto() . "'/>
                 <p> " . $item->getName() . "</p>
                 <p> $" . $item->getPrice() . "</p>
-                <input type='number' id='quantity' name='quantity' value='1' min=0 max=50/>
-                <input type='submit' name='Order'>Order</input>
+                <input type='number' id='item_quantity' name='item_quantity' value='1' min=0 max=50/>
+                <input type='submit' value='Order'></input>
             </form>"
         );
     }

@@ -1,4 +1,10 @@
 
+<script>
+    function logout(){
+        fetch('https://localhost/team2/basisgroupwebsitefall2022/logout.php')
+        
+    }
+</script>
 <?php
 require_once('./backend_accounts.php');
 session_start();
@@ -36,7 +42,7 @@ session_start();
                                                                                 }?>
                                                                                 </p>
                                                                                 </li>
-                <li class="nav-item" title="Account User" style="float:left"><button onclick="<?php $_SESSION['account'] = Null; ?>" href="index.php">Log Out</button></li>
+                <li class="nav-item" title="Account User" style="float:left"><button onclick="logout()" href="index.php">Log Out</button></li>
                 <li class="nav-item" title="Account" style="float:right" href="loginpage.php"><a href="loginpage.php"><img src="menupics/myspace.jpg" alt="Account" title="Account" /></a></li>
                 <li class="nav-item" title="About Us" style="float:right" href="PAGELINK">  <a><img src="menupics/aboutus.jpg" alt="About Us" title="About Us"/></a></li> <!--PAGELINK needs file link-->
                 <li class="nav-item" title="Live Sound" style="float:right" href="PAGELINK">  <a><img src="menupics/services.jpg" alt="Live Sound" title="Live Sound"/></a>         </li>

@@ -4,6 +4,19 @@
     require_once('./model_order_items.php');
     require_once('./backend_accounts.php');
 
+    function selectItemsPaginatedAsObjects($page_number){
+        $item_objects = array();
+        $data = selectItemsPaginated($page_number); //gets a page of items
+        $data = $data -> fetchAll();
+
+        foreach($data as $i => $datum){ //for all of the items on a page
+            $item_objects[$i] = new Item(); //creates item in array
+            $item_objects[$i]->selectItemObject($datum[0]); //fetches value based on id
+        }
+
+        return $item_objects; //returns array of page items as objects
+    }
+
     class Order 
     {
         private $order_id;
@@ -20,7 +33,7 @@
 
         const PASSWORD_ALGO = PASSWORD_BCRYPT;
 
-        function constructor($accountID, $address, $city, $state, $country, $zip, $quoteDiscount, $paymentMethod){
+        function constructor($account, $address, $city, $state, $country, $zip, $quoteDiscount, $paymentMethod){
             $this->setAccount($account);
             $this->setAddress($address);
             $this->setCity($city);
@@ -101,7 +114,17 @@
             return $this->order_items;
         }
         
-
+        function setOrderItemsAuto(array $shopping_cart){ //put in items from shopping cart array and it converts them to order items
+            $orderItemsArray = array();
+            for($i = 0; $i < count($shopping_cart); $i++){
+                $itemObject = new Item();
+                $itemObject->selectItemObject($shopping_cart[$i][0]);
+                $orderItem = new OrderItem();
+                $orderItem->constructor($itemObject, $shopping_cart[$i][1]);
+                $orderItemsArray[$i] = $orderItem;
+            }
+            $this->order_items = $orderItemsArray;
+        }
 
         /*getAccount(){ //returns account as json (implement if necessary)
 
@@ -109,10 +132,11 @@
         
 
         
-        function insertOrderObject(Account $ordering_account){
-            insertOrder($this->account->account_id, $this->destination_address, $this->destination_city, $this->destination_state, $this->destination_country, $this->destination_zip, $this->quote_discount, $this->payment_method);
+        function insertOrderObject(){
+            insertOrder($this->account->getAccountID(), $this->destination_address, $this->destination_city, $this->destination_state, $this->destination_country, $this->destination_zip, $this->quote_discount, $this->payment_method);
+            $this->order_id = $GLOBALS['$db']->lastInsertId();
             foreach($this->order_items as $order_item){ //iterates through order items array to insert all order items using the parent order objects id
-                $order_item->insertOrderItemObject($order_id);
+                $order_item->insertOrderItemObject($this->order_id);
             }
         }
 
@@ -181,16 +205,11 @@
             $this->setPrice($result1[2]);
             $this->setPhoto($result1[3]);
         }
-        
-        function insertItemObject(){
-                insertItem($this->item_name, $this->item_price, $this->item_photo);
-            }
         }
-
-        function updateAccount(){ //modifies account in database except for password NOT FINISHED
-            updateAccountUsernameOnID($this->account_id, $this->account_username);
-                
-            }
+        function insertItemObject(){
+            insertItem($this->item_name, $this->item_price, $this->item_photo);
+        }
+        
         
     }
 
@@ -206,8 +225,8 @@
 
         function constructor(Item $item, $quantity){
             $this->setItemID($item->getItemID());
-            $this->setQuantity($quantity);
             $this->setPrice($item->getPrice());
+            $this->setQuantity($quantity);
         }
 
         private function setOrderItemID($param){ //private because ids should auto increment
@@ -250,13 +269,12 @@
             $this->setItemID($result1[2]);
             $this->setQuantity($result1[3]);
             $this->setPrice($result1[4]);
-        }
-        
-        function insertOrderItemObject($order_id){ //uses the passed value of the parent order object to insert order items
-                insertOrderItem($order_id, $this->item_id, $this->item_price, $this->item_photo);
             }
         }
 
+        function insertOrderItemObject($order_id){ //uses the passed value of the parent order object to insert order items
+            insertOrderItem($order_id, $this->item_id, $this->item_quantity, $this->quote_price);
+        }
         /*function updateAccount(){ //modifies account in database except for password NOT FINISHED
             updateAccountUsernameOnID($this->account_id, $this->account_username);
                 
