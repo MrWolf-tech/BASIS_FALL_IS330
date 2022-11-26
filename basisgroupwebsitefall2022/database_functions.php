@@ -94,7 +94,6 @@
     function selectJoinData(string $tableName1, string $columnName1, string $tableName2, string $columnName2){
 
         $query = "SELECT * FROM $tableName1 JOIN $tableName2 ON $tableName1.$columnName1 = $tableName2.$columnName2;";
-        echo($query);
         try {
             $result = $GLOBALS['$db']->query($query);
                     //$result->closeCursor();
@@ -114,7 +113,6 @@
         //initializes variables for for loops
         $stringColumnNames = '';
         $stringInsertData = '';
-        echo(count($columnNames));
 
         for($i = 0; $i < count($columnNames); $i++){ //generates params and creates a column list string
             if($i >= 1){
@@ -139,7 +137,6 @@
         $statement->execute();
         $statement->closeCursor();
 
-        echo('<div>a'.$mainquery. '</div>');
     }
 
     function updateData(string $tableName, array $columnNames, array $insertData, string $whereCondition, array $dataValues) { // a basic update function that should have functions that automatically format data for each table to fit. Where conditions and column names are not sanitized, so functions should regulate this. $dataValues is for other functions to use to build where functions

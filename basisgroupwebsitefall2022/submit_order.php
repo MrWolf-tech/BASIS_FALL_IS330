@@ -16,7 +16,7 @@ if(count($_POST) != 0){ //if _post array is not empty
 
 if(!isset($_SESSION['shopping_cart']))
 {
-    header("Location: ./catalog.php?page_number=0");
+    header("Location: ./catalog_page.php?page_number=0");
 }
 
 if(!isset($_SESSION['account']))

@@ -2,6 +2,7 @@
 <script>
     function logout(){
         fetch('https://localhost/team2/basisgroupwebsitefall2022/logout.php')
+        .then((response)=>{location.reload()})
         
     }
 </script>
