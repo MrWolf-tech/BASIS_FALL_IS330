@@ -1,3 +1,14 @@
+<script>
+    function toggleShoppingCart(){
+        var cart = document.getElementById("shopping_cart");
+        if(cart.style.display === "none"){
+            cart.style.display = "block";
+        } 
+        else{
+            cart.style.display = "none";
+        }
+    }
+</script>
 <?php
     require_once('./backend_items.php');
     if(!isset($_SESSION['shopping_cart']))
@@ -12,7 +23,8 @@
     else{//in case there is no page number
         header("Location: ./catalog.php?page_number=0");
     }
-
+    print("<button onclick=toggleShoppingCart()>Shopping Cart</button>");
+    print("<div id=shopping_cart>");
     for($i = 0; $i < count($_SESSION['shopping_cart']); $i++){
         $itemObject = new Item();
         $itemObject->selectItemObject($_SESSION['shopping_cart'][$i][0]);
@@ -30,7 +42,9 @@
     }
     print("
         <a href='order_confirm_page.php'>confirm order</a>
+        </div>
     ");
+
     $items = selectItemsPaginatedAsObjects($page_number);
     foreach($items as $item){
         print("
