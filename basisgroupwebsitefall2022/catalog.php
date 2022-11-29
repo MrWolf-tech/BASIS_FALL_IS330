@@ -9,13 +9,15 @@
         }
     }
 </script>
-<?php
+<div class="insertform">
+    <div>
+        <?php
     require_once('./backend_items.php');
     if(!isset($_SESSION['shopping_cart']))
     {
         $_SESSION['shopping_cart'] = array();
     }
-    
+
 
     if(count($_GET) != 0){
         $page_number = filter_input(INPUT_GET, 'page_number');
@@ -60,4 +62,6 @@
         );
     }
 
-?>
+        ?>
+    </div>
+</div>

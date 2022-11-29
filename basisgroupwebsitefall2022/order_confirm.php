@@ -1,4 +1,6 @@
-<?php
+<div class="insertform">
+    <div>
+        <?php
 require_once('./backend_items.php');
 
 if(!isset($_SESSION['shopping_cart']))
@@ -30,7 +32,7 @@ for($i = 0; $i < count($_SESSION['shopping_cart']); $i++){
                 <select name='country' id='country'>
                     <option>select country</option>
                 </select>
-            
+
                 <label for='state'>State</label>
                 <span id='state-code'><input type='text' id='state'></span>
 
@@ -42,13 +44,15 @@ for($i = 0; $i < count($_SESSION['shopping_cart']); $i++){
 
                 <label for='zip'>ZIP Code</label>
                 <input required type='text'  id='zip' name='zip' placeholder='ZIP code'/>
-                
+
                 <label for='payment_method'>Payment Method</label>
                 <input required type='text'  id='payment_method' name='payment_method' placeholder='Payment Method'/>
 
                 <input type='submit' value='Confirm Order'></input>
             </form>");
-?>
+        ?>
+    </div>
+    </div>
 <script src=".\country-states.js"></script><!-- adds country and states code list-->
 <script>//script that implements country drop down from www.html-code-generator.com
     // user country code for selected option
