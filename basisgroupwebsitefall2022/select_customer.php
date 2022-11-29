@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <head>
-    <title id="title">Axolotl</title>
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="profilepage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -9,7 +8,7 @@
 
 
 
-<div class="main">
+<div class="main"> 
 
 <div class="about"> 
     <?php require_once('./select_customer_form.php') ?>
@@ -30,8 +29,6 @@
     </div>
 </div>
 </div>
-<!--THE SCRIPT REMAINS AT THE BOTTOM OTHERWISE THE PAGE BREAKS-->
-<!--<script src="script.js"></script>-->
 </body>
 </html>
 
