@@ -23,7 +23,7 @@
         $page_number = filter_input(INPUT_GET, 'page_number');
     }
     else{//in case there is no page number
-        header("Location: ./catalog.php?page_number=0");
+        header("Location: ./catalog_page.php?page_number=0");
     }
     print("<button onclick=toggleShoppingCart()>Shopping Cart</button>");
     print("<div id=shopping_cart>");

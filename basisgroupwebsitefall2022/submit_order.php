@@ -30,3 +30,4 @@ $order->setOrderItemsAuto($_SESSION['shopping_cart']);
 $order->insertOrderObject();
 $_SESSION['shopping_cart'] = null;
 ?>
+<a href="catalog_page.php">Return To Catalog</a>

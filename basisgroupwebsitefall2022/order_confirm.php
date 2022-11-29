@@ -9,7 +9,7 @@ if(!isset($_SESSION['shopping_cart']))
 }
 if(!isset($_SESSION['account']))
 {
-    header("Location: ./logon_page.php");
+    header("Location: ./loginpage.php");
 }
 
 for($i = 0; $i < count($_SESSION['shopping_cart']); $i++){
