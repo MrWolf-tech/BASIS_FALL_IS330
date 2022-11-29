@@ -46,7 +46,7 @@
         <a href='order_confirm_page.php'>confirm order</a>
         </div>
     ");
-
+    print("<div id=catalog>");
     $items = selectItemsPaginatedAsObjects($page_number);
     foreach($items as $item){
         print("
@@ -61,6 +61,7 @@
             </form>"
         );
     }
+    print("</div>");
 
         ?>
     </div>

@@ -137,3 +137,38 @@ div.Navbar {
 footer {
     color: #A9A9A9;
 }
+
+/* Catalog/Shopping Cart Styling */
+.item_img{
+    width: 2in;
+}
+#shopping_cart{
+    background-color:#A9A9A9;
+}
+#shopping_cart p{
+    width:fit-content;
+    padding:1em;
+    margin:2em;
+    
+}
+#shopping_cart form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+        
+}
+
+#catalog p{
+    width:fit-content;
+    padding:1em;
+    margin:2em;
+    
+}
+#catalog form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+        
+}

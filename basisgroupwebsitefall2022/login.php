@@ -9,5 +9,5 @@
                 <input type="submit" id="submit" value="submit" />
             </form>
         </div>
-        <div id="noact"><a href="">Don't have an account? Click Here!</a></div>
+        <div id="noact"><a href="insert_customer.php">Don't have an account? Click Here!</a></div>
 </div>
