@@ -1,13 +1,14 @@
 <!--item_name, item_price, photo-->
 <?php
 require_once('./backend_items.php');
-	if(count($_POST) != 0) //if _post array is not empty
+	if(count($_POST) != 0){ //if _post array is not empty
 		$item_name = filter_input(INPUT_POST, 'item_name');
 		$price = filter_input(INPUT_POST, 'price');
 		$photo = filter_input(INPUT_POST, 'photo');
 		$item = new Item();
 		$item->constructor($item_name, $price, $photo);
-		$item->insertItem();
+		$item->insertItemObject();
+	}	
 
 ?>
 	<div class="insertform">
