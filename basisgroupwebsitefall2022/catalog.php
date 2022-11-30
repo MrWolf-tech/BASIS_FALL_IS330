@@ -26,13 +26,13 @@
         header("Location: ./catalog_page.php?page_number=0");
     }
     print("<button onclick=toggleShoppingCart()>Shopping Cart</button>");
-    print("<div id=shopping_cart>");
+    print("<div id=shopping_cart>");//opens shopping cart div
     for($i = 0; $i < count($_SESSION['shopping_cart']); $i++){
         $itemObject = new Item();
         $itemObject->selectItemObject($_SESSION['shopping_cart'][$i][0]);
         print("
             <form method='post'>
-                <input type='hidden' id='page_number' name='page_number' value='$page_number'>
+                <input type='hidden' id='page_number' name='page_number' value='$page_number'> <!--stores page number for return to page-->
                 <input type='hidden' id='item_id' name='item_id' value='" . $itemObject->getItemID() . "'>
                 <input type='hidden' id='index' name='index' value='" . $i . "'>
                 <img class='item_img' src='" . $itemObject->getPhoto() . "'/>
@@ -45,10 +45,10 @@
     print("
         <a href='order_confirm_page.php'>confirm order</a>
         </div>
-    ");
-    print("<div id=catalog>");
-    $items = selectItemsPaginatedAsObjects($page_number);
-    foreach($items as $item){
+    ");//closes shopping cart div and adds order button
+    print("<div id=catalog>");//opens catalog div
+    $items = selectItemsPaginatedAsObjects($page_number);//selects a page full of catalog items
+    foreach($items as $item){//for each catalog item adds catalog entry in a from
         print("
             <form action='addtocart.php' method='post'>
                 <input type='hidden' id='page_number' name='page_number' value='$page_number'>
@@ -57,11 +57,11 @@
                 <p> " . $item->getName() . "</p>
                 <p> $" . $item->getPrice() . "</p>
                 <input type='number' id='item_quantity' name='item_quantity' value='1' min=0 max=50/>
-                <input type='submit' value='Order'></input>
+                <input type='submit' value='Add to Cart'></input>
             </form>"
         );
     }
-    print("</div>");
+    print("</div>");//closes catalog div
 
         ?>
     </div>

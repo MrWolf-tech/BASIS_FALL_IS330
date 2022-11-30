@@ -142,8 +142,15 @@
         }
 
         function authenticateAccount($username, $password){ //gets account id by passed in username and password, then automatically selects this from the database, turning this account object into it
-            $this->selectAccount(authenticateAccountInfo($username,$password));
-            print($this->account_name);
+            $id = authenticateAccountInfo($username,$password);
+            print $id;
+            if(isset($id)){
+                $this->selectAccount($id);
+                return true;
+            }
+            else{
+                return false;
+            }
         }
         
         function insertAccount(){

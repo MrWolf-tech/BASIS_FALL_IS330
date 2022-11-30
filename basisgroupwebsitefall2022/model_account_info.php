@@ -63,6 +63,9 @@
         $whereCondition = "username = :dataValue0";
         $dataValueArray = array($username);
         $result = selectData($GLOBALS['account_infoTableName'], $whereCondition, $dataValueArray)->fetch();
+        if(!isset($result[2])){
+            return null;
+        }
         if(password_verify($password, $result[2])){ //if password verifies returns the id of the account
             return $result[0]; 
         }

@@ -134,6 +134,10 @@ INSERT INTO team2dbsite.items
 			'stuff',
 			500.50,
             'test.jpg'
+			), (
+			'thing',
+			200,
+            'test2.jpg'
 			);
 INSERT INTO team2dbsite.order_items
 		(

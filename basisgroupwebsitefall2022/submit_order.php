@@ -30,4 +30,5 @@ $order->setOrderItemsAuto($_SESSION['shopping_cart']);
 $order->insertOrderObject();
 $_SESSION['shopping_cart'] = null;
 ?>
+<h1>Order Successful</h1> <!-- not technically actually detecting whether it's successful-->
 <a href="catalog_page.php">Return To Catalog</a>
